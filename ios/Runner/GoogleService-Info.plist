@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>527906989717-tr9lqbbkb3t24qfcp48egq9qndb169mc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.527906989717-tr9lqbbkb3t24qfcp48egq9qndb169mc</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>527906989717-b7qifoilvgi8r8k576b7a1euuhjtt34e.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvRrvpaQzizk8YNHp7MvBogRqBKL-TePQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>527906989717</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.guru.cryptotalk</string>
+	<key>PROJECT_ID</key>
+	<string>cryptotalk-e4153</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cryptotalk-e4153.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:527906989717:ios:8238f6d5b962402f</string>
+	<key>DATABASE_URL</key>
+	<string>https://cryptotalk-e4153.firebaseio.com</string>
+</dict>
+</plist>
