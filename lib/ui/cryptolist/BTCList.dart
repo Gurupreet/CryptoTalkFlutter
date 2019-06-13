@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:demo_app/Data/FirebaseManager.dart';
 import 'package:demo_app/Data/models/Crypto.dart';
 import 'package:demo_app/ui/cryptolist/MainListItem.dart';
+import 'package:demo_app/util/FirebaseStreamObserver.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -16,15 +17,9 @@ class _BTCListState extends State<BTCList> {
   Stream<Event> dataStream = FirebaseManager().getBTCStream;
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return FirebaseStreamObserver(
         stream: dataStream,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Center(child: Text("Failed to load data"));
-          } else if (snapshot == null || snapshot.data == null) {
-            return Center(child: CircularProgressIndicator());
-          } else {
-            Event event = snapshot.data;
+        onSuccess: (context, event) {
             List<dynamic> l = event.snapshot.value.values.toList();
             Iterable reversed = l.reversed;
             var rev = reversed.toList();
@@ -37,6 +32,6 @@ class _BTCListState extends State<BTCList> {
               itemCount: data.length,
             ));
           }
-        });
+        );
   }
 }

@@ -5,22 +5,22 @@ import 'BTCList.dart';
 import 'EOSList.dart';
 import 'ETHList.dart';
 import 'AllList.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 bool get isIOS => foundation.debugDefaultTargetPlatformOverride == TargetPlatform.iOS;
 class CryptoHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   if (isIOS) { 
      return DefaultTabController(
         length: 4,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(text: "BTC"),
-                Tab(text: "ETH"),
-                Tab(text: "EOS"),
-                Tab(text: "ALL")
+                Tab(text: "BTC", icon: Icon(FontAwesomeIcons.btc)),
+                Tab(text: "ETH", icon: Icon(FontAwesomeIcons.ethereum)),
+                Tab(text: "EOS", icon: Icon(FontAwesomeIcons.btc)),
+                Tab(text: "ALL", icon: Icon(FontAwesomeIcons.btc))
               ],
             ),
             title: Text('Crypto'),
@@ -36,32 +36,5 @@ class CryptoHome extends StatelessWidget {
           ),
         ),
     );
-    } else {
-      return  DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              tabs: [
-                Tab(text: "BTC"),
-                Tab(text: "ETH"),
-                Tab(text: "EOS"),
-                Tab(text: "ALL")
-              ],
-            ),
-            title: Text('Crypto'),
-            actions: <Widget>[Padding(child:Icon(Icons.search), padding: const EdgeInsets.all(10.0),)],
-          ),
-          body: TabBarView(
-            children: [
-              BTCList(),
-              ETHList(),
-              EOSList(),
-              AllList(),
-            ],
-          ),
-        ),
-      );
-    }
+    } 
   }
-}

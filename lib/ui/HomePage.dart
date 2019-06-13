@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'cryptolist/CryptoHome.dart';
 import 'package:flutter/foundation.dart' as foundation;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'NewsPage.dart';
  bool get isIOS => foundation.debugDefaultTargetPlatformOverride == TargetPlatform.iOS;
 
 
 class HomePage extends StatefulWidget {
-  bool get isIOS => foundation.debugDefaultTargetPlatformOverride == TargetPlatform.iOS;
+
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -28,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
+    bool  isIOS = Theme.of(context).platform == TargetPlatform.iOS;
     if (isIOS) {
       return new CupertinoTabScaffold(
           tabBuilder: (context, index) {
@@ -38,9 +40,9 @@ class _HomePageState extends State<HomePage> {
              onTap: bottomNavTapped,
         currentIndex: _currentIndex,
         items: [
-           BottomNavigationBarItem(icon: new Icon(CupertinoIcons.person), title: new Text("Crypto")),
-           BottomNavigationBarItem(icon: new Icon(CupertinoIcons.bell), title: new Text("Alerts")),
-           BottomNavigationBarItem(icon: new Icon(CupertinoIcons.book_solid), title: new Text("News")),
+           BottomNavigationBarItem(icon: new Icon(FontAwesomeIcons.solidChartBar), title: new Text("Crypto")),
+           BottomNavigationBarItem(icon: new Icon(FontAwesomeIcons.solidBell), title: new Text("Alerts")),
+           BottomNavigationBarItem(icon: new Icon(FontAwesomeIcons.solidNewspaper), title: new Text("News")),
         ],
           ),
       );
@@ -51,9 +53,9 @@ class _HomePageState extends State<HomePage> {
         onTap: bottomNavTapped,
         currentIndex: _currentIndex,
         items: [
-           BottomNavigationBarItem(icon: new Icon(Icons.perm_camera_mic), title: new Text("Crypto")),
-           BottomNavigationBarItem(icon: new Icon(Icons.notification_important), title: new Text("Alerts")),
-           BottomNavigationBarItem(icon: new Icon(Icons.book), title: new Text("News")),
+           BottomNavigationBarItem(icon: new Icon(FontAwesomeIcons.solidChartBar), title: new Text("Crypto")),
+           BottomNavigationBarItem(icon: new Icon(FontAwesomeIcons.solidBell), title: new Text("Alerts")),
+           BottomNavigationBarItem(icon: new Icon(FontAwesomeIcons.solidNewspaper), title: new Text("News")),
         ],
       ),
     );
