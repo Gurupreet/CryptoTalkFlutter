@@ -20,18 +20,17 @@ class _BTCListState extends State<BTCList> {
     return FirebaseStreamObserver(
         stream: dataStream,
         onSuccess: (context, event) {
-            List<dynamic> l = event.snapshot.value.values.toList();
-            Iterable reversed = l.reversed;
-            var rev = reversed.toList();
-            rev.forEach((f) => {data.add(Crypto.fromMap(f))});
-            return Container(
-                child: ListView.builder(
-              itemBuilder: (context, position) {
-                return mainListItem(context, data[position]);
-              },
-              itemCount: data.length,
-            ));
-          }
-        );
+          List<dynamic> l = event.snapshot.value.values.toList();
+          Iterable reversed = l.reversed;
+          var rev = reversed.toList();
+          rev.forEach((f) => {data.add(Crypto.fromMap(f))});
+          return Container(
+              child: ListView.builder(
+            itemBuilder: (context, position) {
+              return mainListItem(context, data[position]);
+            },
+            itemCount: data.length,
+          ));
+        });
   }
 }

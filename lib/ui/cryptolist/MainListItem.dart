@@ -1,18 +1,34 @@
 import 'package:demo_app/Data/models/Crypto.dart';
 import 'package:demo_app/ui/cryptodetail/CryptoDetailPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'dart:math';
 
 Widget mainListItem(context, Crypto crypto) {
   String symbol = "btc";
-  print(symbol);
+  var random = new Random();
+  var data = [
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+    random.nextDouble(),
+  ];
   return Card(
       elevation: 4.0,
       margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: InkWell(
           onTap: () {
-           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-            return CryptoDetailPage(crypto);
-           }));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (BuildContext context) {
+              return CryptoDetailPage(crypto);
+            }));
           },
           child: new Padding(
               padding: const EdgeInsets.all(8.0),
@@ -32,8 +48,12 @@ Widget mainListItem(context, Crypto crypto) {
                                         color: crypto.dayChange > 0
                                             ? Colors.green
                                             : Colors.red)),
-                                
-                               Image(image: AssetImage("assets/cryptoIcons/$symbol.png"), width: 30, height: 30,),
+                                Image(
+                                  image: AssetImage(
+                                      "assets/cryptoIcons/$symbol.png"),
+                                  width: 30,
+                                  height: 30,
+                                ),
                                 Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -47,6 +67,16 @@ Widget mainListItem(context, Crypto crypto) {
                                       ],
                                     )),
                               ]),
+                          Hero(
+                              tag: "sparkline",
+                              child: Container(
+                                  width: 80.0,
+                                  height: 30.0,
+                                  child: new Sparkline(
+                                      data: data,
+                                      lineColor: crypto.dayChange > 0
+                                          ? Colors.green
+                                          : Colors.red))),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
