@@ -3,6 +3,8 @@ import 'package:demo_app/ui/cryptodetail/CryptoDetailPage.dart';
 import 'package:flutter/material.dart';
 
 Widget mainListItem(context, Crypto crypto) {
+  String symbol = "btc";
+  print(symbol);
   return Card(
       elevation: 4.0,
       margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -31,7 +33,7 @@ Widget mainListItem(context, Crypto crypto) {
                                             ? Colors.green
                                             : Colors.red)),
                                 
-                               Image(image: AssetImage('cryptoIcons/btc.svg'), width: 20, height: 20,),
+                               Image(image: AssetImage("assets/cryptoIcons/$symbol.png"), width: 30, height: 30,),
                                 Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
