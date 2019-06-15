@@ -68,7 +68,7 @@ Widget mainListItem(context, Crypto crypto) {
                                     )),
                               ]),
                           Hero(
-                              tag: "sparkline",
+                              tag: crypto.name,
                               child: Container(
                                   width: 80.0,
                                   height: 30.0,

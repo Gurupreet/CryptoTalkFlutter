@@ -2,6 +2,7 @@ import 'package:demo_app/Data/models/Crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'dart:math';
 
 class CryptoDetailPage extends StatelessWidget {
   final Crypto crypto;
@@ -9,6 +10,20 @@ class CryptoDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var random = new Random();
+    var data = [
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+      random.nextDouble(),
+    ];
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
@@ -28,12 +43,12 @@ class CryptoDetailPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(<Widget>[
               Hero(
-                  tag: "sparkline",
+                  tag: crypto.name,
                   child: Container(
                       width: 80.0,
                       height: 30.0,
                       child: new Sparkline(
-                          data: [1.0, 3.0, 4.0, 5.0, 7.0, 8.0, 5.0, 4.0],
+                          data: data,
                           lineColor: crypto.dayChange > 0
                               ? Colors.green
                               : Colors.red)))
