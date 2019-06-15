@@ -31,7 +31,18 @@ class CryptoDetailPage extends StatelessWidget {
             title: Text(crypto.name),
             pinned: true,
             expandedHeight: 200,
-            flexibleSpace: Text("flex"),
+            flexibleSpace: FlexibleSpaceBar(
+                background: Hero(
+                    tag: crypto.name,
+                    child: Container(
+                        padding: EdgeInsets.only(top: 60),
+                        width: 80.0,
+                        height: 30.0,
+                        child: new Sparkline(
+                            data: data,
+                            lineColor: crypto.dayChange > 0
+                                ? Colors.green
+                                : Colors.red)))),
             actions: <Widget>[
               Padding(
                   padding: EdgeInsets.all(10), child: Icon(Icons.add_alert)),
@@ -40,19 +51,8 @@ class CryptoDetailPage extends StatelessWidget {
                   child: Icon(FontAwesomeIcons.chartLine))
             ],
           ),
-          SliverList(
-            delegate: SliverChildListDelegate(<Widget>[
-              Hero(
-                  tag: crypto.name,
-                  child: Container(
-                      width: 80.0,
-                      height: 30.0,
-                      child: new Sparkline(
-                          data: data,
-                          lineColor: crypto.dayChange > 0
-                              ? Colors.green
-                              : Colors.red)))
-            ]),
+          SliverFillRemaining(
+            child: Text(crypto.dayChange.toString()),
           )
         ],
       ),

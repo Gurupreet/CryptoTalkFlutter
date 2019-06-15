@@ -39,7 +39,7 @@ class _AlertListState extends State<AlertList> {
           return Container(
               child: ListView.builder(
             itemBuilder: (context, position) {
-              return AlertListItem(data[position]);
+              return AlertListItem(crypto: data[position]);
             },
             itemCount: data.length,
           ));

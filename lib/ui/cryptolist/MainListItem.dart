@@ -22,7 +22,7 @@ Widget mainListItem(context, Crypto crypto) {
   ];
   return Card(
       elevation: 4.0,
-      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      margin: new EdgeInsets.all(10),
       child: InkWell(
           onTap: () {
             Navigator.push(context,
